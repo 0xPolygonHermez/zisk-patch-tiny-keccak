@@ -30,7 +30,7 @@ const RC: [u64; ROUNDS] = [
 ];
 
 cfg_if::cfg_if! {
-    if #[cfg(all(target_os = "ziskos", target_vendor = "polygon", target_arch = "riscv64"))] {
+    if #[cfg(all(target_os = "zkvm", target_vendor = "zisk"))] {
         use crate::zisk;
         use zisk::keccakf;
     } else {
