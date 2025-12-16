@@ -149,7 +149,7 @@ mod keccakf;
 ))]
 
 cfg_if::cfg_if! {
-    if #[cfg(all(target_os = "ziskos", target_vendor = "polygon", target_arch = "riscv64"))] {
+    if #[cfg(all(target_os = "zkvm", target_vendor = "zisk"))] {
         mod zisk;
         pub use zisk::keccakf;
     } else {
