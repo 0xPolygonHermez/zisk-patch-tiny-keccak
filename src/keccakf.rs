@@ -43,5 +43,7 @@ pub struct KeccakF;
 impl Permutation for KeccakF {
     fn execute(buffer: &mut Buffer) {
         keccakf(buffer.words());
+        #[cfg(not(all(target_os = "zkvm", target_vendor = "zisk")))]
+        ziskos::hints::hint_keccakf(buffer.words());
     }
 }

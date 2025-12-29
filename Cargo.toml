@@ -14,6 +14,7 @@ categories = ["cryptography", "no-std"]
 [dependencies]
 crunchy = "0.2.2"
 cfg-if = "1.0"
+ziskos = { path = "../zisk/ziskos/entrypoint" }
 
 [profile.dev]
 opt-level = 3  # Controls the --opt-level the compiler builds with
@@ -88,3 +89,6 @@ required-features = ["sha3"]
 
 [package.metadata.docs.rs]
 all-features = true
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(target_vendor, values("zisk"))'] }
